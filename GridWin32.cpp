@@ -8,7 +8,7 @@ struct StructColPar{int Widht; LPCWSTR Title;};
 map<int, StructColPar> ColumnsParametrs;
 
 struct StructColumn{LPCWSTR Column1; LPCWSTR Column2; LPCWSTR Column3;};
-map<int, StructColumn> Grig;
+map<int, StructColumn> grig;
 
 
 LRESULT CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM) ;
@@ -46,7 +46,7 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance,
                     NULL,                    // parent window handle
                     NULL,                    // window menu handle
                     hInstance,               // program instance handle
-		      NULL) ;		           // creation parameters
+		      NULL) ;		     // creation parameters
 
      ShowWindow (hwnd, iCmdShow) ;
      UpdateWindow (hwnd) ;
@@ -73,13 +73,13 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	 СтруктураКолонок.Column2 = L"12";
 	 СтруктураКолонок.Column3 = L"13";
 
-	 Grig.insert(pair<int, StructColumn>(1, СтруктураКолонок));
+	 grig.insert(pair<int, StructColumn>(1, СтруктураКолонок));
 	 
 	 СтруктураКолонок.Column1 = L"21";
 	 СтруктураКолонок.Column2 = L"22";
 	 СтруктураКолонок.Column3 = L"23";
 
-	 Grig.insert(pair<int, StructColumn>(2, СтруктураКолонок));
+	 grig.insert(pair<int, StructColumn>(2, СтруктураКолонок));
 
      while (GetMessage (&msg, NULL, 0, 0))
      {
@@ -92,12 +92,11 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance,
 LRESULT CALLBACK WndProc (HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 {
      HDC         hdc ;
-     PAINTSTRUCT ps ;
+     PAINTSTRUCT ps;
      RECT        rect ;
 
      switch (iMsg)
      {
-
           case WM_PAINT :
 			  {
 	        hdc = BeginPaint (hwnd, &ps) ;
@@ -118,13 +117,10 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 					
 					MoveToEx(hdc, WidhtGrid, 0, &pt);
 					LineTo(hdc, WidhtGrid, 22);
-
 				}
 
-				//StructColumn СтруктураКолонок;
-
 				map<int, StructColumn>::iterator itGrig;
-				for (itGrig = Grig.begin(); itGrig != Grig.end(); itGrig++)
+				for (itGrig = grig.begin(); itGrig != grig.end(); itGrig++)
 				{		
 					WidhtGrid = 0;
 					for (itColumnsParametrs = ColumnsParametrs.begin(); itColumnsParametrs != ColumnsParametrs.end(); itColumnsParametrs++)
@@ -139,9 +135,7 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 					MoveToEx(hdc, 0, itGrig->first*22, &pt);
 					LineTo(hdc, WidhtGrid, itGrig->first*22);
 				}
-
 			  }
-
 
 	        EndPaint (hwnd, &ps) ;
                return 0 ;
@@ -153,4 +147,3 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 
      return DefWindowProc (hwnd, iMsg, wParam, lParam) ;
 }
-
