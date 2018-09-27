@@ -51,35 +51,35 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance,
      ShowWindow (hwnd, iCmdShow) ;
      UpdateWindow (hwnd) ;
 
-	 StructColPar СтруктураПарКол;
-	 СтруктураПарКол.Title = L"Тема";
-	 СтруктураПарКол.Widht = 100;
+	 StructColPar structPCol;
+	 structPCol.Title = L"Тема";
+	 structPCol.Widht = 100;
 
-	 ColumnsParametrs.insert(pair<int, StructColPar>(1, СтруктураПарКол));
+	 ColumnsParametrs.insert(pair<int, StructColPar>(1, structPCol));
 
-	 СтруктураПарКол.Title = L"Содержание";
-	 СтруктураПарКол.Widht = 200;
+	 structPCol.Title = L"Содержание";
+	 structPCol.Widht = 200;
 
-	 ColumnsParametrs.insert(pair<int, StructColPar>(2, СтруктураПарКол));
+	 ColumnsParametrs.insert(pair<int, StructColPar>(2, structPCol));
 
-	 СтруктураПарКол.Title = L"Отправитель";
-	 СтруктураПарКол.Widht = 100;
+	 structPCol.Title = L"Отправитель";
+	 structPCol.Widht = 100;
 
-	 ColumnsParametrs.insert(pair<int, StructColPar>(3, СтруктураПарКол));
+	 ColumnsParametrs.insert(pair<int, StructColPar>(3, structPCol));
 
 	 //------
-	 StructColumn СтруктураКолонок;
-	 СтруктураКолонок.Column1 = L"1";
-	 СтруктураКолонок.Column2 = L"12";
-	 СтруктураКолонок.Column3 = L"13";
+	 StructColumn structCol
+	 structCol.Column1 = L"1";
+	 structCol.Column2 = L"12";
+	 structCol.Column3 = L"13";
 
-	 grig.insert(pair<int, StructColumn>(1, СтруктураКолонок));
+	 grig.insert(pair<int, StructColumn>(1, structCol));
 	 
-	 СтруктураКолонок.Column1 = L"21";
-	 СтруктураКолонок.Column2 = L"22";
-	 СтруктураКолонок.Column3 = L"23";
+	 structCol.Column1 = L"21";
+	 structCol.Column2 = L"22";
+	 structCol.Column3 = L"23";
 
-	 grig.insert(pair<int, StructColumn>(2, СтруктураКолонок));
+	 grig.insert(pair<int, StructColumn>(2, structCol));
 
      while (GetMessage (&msg, NULL, 0, 0))
      {
