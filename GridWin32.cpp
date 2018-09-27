@@ -52,24 +52,24 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance,
      UpdateWindow (hwnd) ;
 
 	 StructColPar structPCol;
-	 structPCol.Title = L"Тема";
+	 structPCol.Title = L"Theme";
 	 structPCol.Widht = 100;
 
 	 ColumnsParametrs.insert(pair<int, StructColPar>(1, structPCol));
 
-	 structPCol.Title = L"Содержание";
+	 structPCol.Title = L"Description";
 	 structPCol.Widht = 200;
 
 	 ColumnsParametrs.insert(pair<int, StructColPar>(2, structPCol));
 
-	 structPCol.Title = L"Отправитель";
 	 structPCol.Widht = 100;
+	 structPCol.Title = L"From";
 
 	 ColumnsParametrs.insert(pair<int, StructColPar>(3, structPCol));
 
 	 //------
 	 StructColumn structCol
-	 structCol.Column1 = L"1";
+	 structCol.Column1 = L"11";
 	 structCol.Column2 = L"12";
 	 structCol.Column3 = L"13";
 
@@ -99,9 +99,9 @@ LRESULT CALLBACK WndProc (HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
      {
           case WM_PAINT :
 			  {
-	        hdc = BeginPaint (hwnd, &ps) ;
+				hdc = BeginPaint (hwnd, &ps) ;
 
-               GetClientRect (hwnd, &rect) ;
+				GetClientRect (hwnd, &rect) ;
 
 				POINT pt;
 				int WidhtGrid = 0;
